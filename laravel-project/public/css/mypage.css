@@ -1,0 +1,357 @@
+.name {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 30px;
+}
+
+section {
+    padding: 3rem;
+}
+
+h2 {
+    padding: 0 20px;
+    margin-bottom: 80px;
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: red;
+    margin: 0 auto;
+}
+
+.success-message {
+    font-size: 1.2rem;
+    color: green;
+    margin: 0 auto;
+}
+
+.reservation-card {
+    background-color: #4461F2;
+    color: white;
+    width: 90%;
+    padding: 14px;
+    margin: 23px 0;
+    border-radius: 8px;
+    position: relative;
+}
+
+.reservation-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.reservation-details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(312px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.restaurant-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.restaurant-image {
+    border-radius: 8px 8px 0 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.restaurant-info {
+    padding: 28px 15px;
+}
+
+.restaurant-name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.restaurant-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    color: #666;
+    margin: 10px 0;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-button {
+    border: none;
+    background: #4461F2;
+    color: white;
+    padding: 8px 16px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.heart-button {
+    font-size: 3em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+}
+
+.reservation-edit-form {
+    background-color: #77aef6;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    width: 90%;
+}
+
+.edit-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #77aef6
+}
+
+.update-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
+
+.reservation-edit-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.reservation-edit-form input[type="date"],
+.reservation-edit-form input[type="time"],
+.reservation-edit-form select {
+    width: 60%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.reservation-card {
+    position: relative;
+}
+
+.cancel-edit-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-edit-btn:hover {
+    background-color: #5a6268;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 2em;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.star-rating span {
+    color: #ccc;
+}
+
+.star-rating span.selected {
+    color: #ffcc00;
+}
+
+.star-rating span:hover,
+.star-rating span:hover ~ span {
+    color: #ffcc00;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+}
+
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    resize: vertical;
+}
+
+.submit-review-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4461F2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-review-btn:hover {
+    background-color: #0c32ef;
+}
+
+h3 {
+    text-align: center;
+    font-size: 23px;
+}
+
+.review-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 75px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.evaluated {
+    position: absolute;
+    bottom: 5px;
+    right: 80px;
+    font-size: 15px;
+    color: white;
+}
+
+.review-complete {
+    position: absolute;
+    bottom: 5px;
+    right: 80px;
+    border: none;
+    font-size: 15px;
+    color: white;
+}
+
+.review-btn:hover {
+    color: #ffcc00;
+}
+
+.btn.btn-primary {
+    color: white;
+    display: inline-block;
+}
+
+.btn.btn-primary:hover {
+    color: rgb(54, 219, 54);
+}
+
+.btn.btn-qr_code {
+    color: white;
+    display: inline-block;
+}
+
+.btn.btn-qr_code:hover {
+    color: grey;
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        width: 80%;
+        margin-bottom: 23px;
+    }
+
+    .reservation-card {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 23px;
+        margin-top: 20px;
+    }
+
+    .section-title {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 23px;
+    }
+
+    .reservation-edit-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .star-rating span {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    .review-btn-container {
+        text-align: center;
+    }
+
+    .submit-review-btn {
+        width: 45%;
+    }
+}

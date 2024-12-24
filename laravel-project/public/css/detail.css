@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+header {
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-button {
+    background-color: #4169e1;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+}
+
+h1 {
+    color: #4169e1 !important;
+    font-size: 30px !important;
+}
+
+h2 {
+    text-align: center;
+    padding-left: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: white;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.restaurant-image-link {
+    display: inline-block;
+}
+.restaurant-image {
+    display: block;
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 24px 0;
+}
+
+.restaurant-title {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.restaurant-description {
+    width: 78%;
+    line-height: 1.6;
+    color: #666;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reservation-card {
+    background-color: #4169e1;
+    color: white;
+    padding: 24px;
+    border-radius: 8px;
+    position: sticky;
+    top: 24px;
+}
+
+.reservation-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.reservation-details {
+    background-color: rgba(255,255,255,0.1);
+    padding: 16px;
+    border-radius: 5px;
+    margin: 40px 0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 20px;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #afc2f6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 200px;
+    width: 80%;
+    position: relative;
+}
+
+.close {
+    display: inline-block;
+    color: #fff;
+    padding: 0 10px 0 10px;
+    background-color: #007BFF;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-links a {
+    margin: 10px 0;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.modal-links a:hover {
+    text-decoration: underline;
+}
+
+.login-message {
+    text-align: center;
+    margin: 55px 0;
+}
+
+.login-message p {
+    font-size: 20px;
+}
+
+.login-message a {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.login-message a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .restaurant-image {
+        width: 100%;
+    }
+
+    .restaurant-title {
+        display: flex;
+        gap: 18px;
+    }
+
+    .restaurant-description {
+        width: 100%;
+    }
+
+    .reservation-card {
+        position: static;
+    }
+
+    .submit-button {
+        margin-bottom: 10px;
+    }
+
+    .reservation-card {
+        padding: 20px 40px;
+        width: 85%;
+        margin: 0 auto;
+    }
+}

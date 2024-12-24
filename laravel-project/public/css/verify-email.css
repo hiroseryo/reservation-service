@@ -1,0 +1,58 @@
+.verify-email-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.verify-email-intro {
+    margin-bottom: 20px;
+}
+
+.verify-email-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.verify-email-instructions {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.verify-email-alert {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    font-size: 14px;
+}
+
+.verify-email-action {
+    margin-top: 20px;
+}
+
+.verify-email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4461F2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.verify-email-button:hover {
+    background-color: #3451E2;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 768px) {
+    .verify-email-page {
+        max-width: 600px;
+    }
+}

@@ -1,0 +1,46 @@
+.qr-code-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.qr-code-intro {
+    margin-bottom: 20px;
+}
+
+.qr-code-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.qr-code-instructions {
+    font-size: 16px;
+    color: #555;
+}
+
+.qr-code-section {
+    margin: 20px 0;
+}
+
+.qr-code {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.qr-code-footer {
+    margin-top: 20px;
+}
+
+.back-to-mypage {
+    color: #4169e1;
+    text-decoration: none;
+}
+
+.back-to-mypage:hover {
+    text-decoration: underline;
+}
