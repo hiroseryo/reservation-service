@@ -10,7 +10,7 @@ use App\Http\Requests\ReservationRequest;
 class ReservationController extends Controller
 {
     // 予約登録処理
-    public function store(ReservationRequest $request)
+    public function store(Request $request)
     {
 
         $start_at = date('Y-m-d H:i:s', strtotime($request->date . ' ' . $request->time));
