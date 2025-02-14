@@ -26,7 +26,7 @@ class StoreCreationRequest extends FormRequest
             'area_id' => ['required', 'exists:areas,id'],
             'genre_id' => ['required', 'exists:genres,id'],
             'description' => ['required', 'string'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
         ];
     }
 
@@ -48,7 +48,7 @@ class StoreCreationRequest extends FormRequest
 
             'image.required' => '画像ファイルは必須です。',
             'image.image' => '指定されたファイルが画像ではありません。',
-            'image.mimes' => '指定された形式（jpeg、png、jpg、gif）の画像を選択してください。',
+            'image.mimes' => '指定された形式（jpeg、png、jpg）の画像を選択してください。',
             'image.max' => '画像ファイルは2MB以下にしてください。',
         ];
     }

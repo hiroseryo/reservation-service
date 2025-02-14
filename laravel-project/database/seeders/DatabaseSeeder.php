@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             GenresTableSeeder::class,
             AreasTableSeeder::class,
             RoleSeeder::class,
+            AdminUserSeeder::class,
             ShopsTableSeeder::class,
         ]);
     }

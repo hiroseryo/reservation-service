@@ -65,16 +65,6 @@
                     <a href="{{ route('reservations.qrcode.show', $reservation->id) }}" class="btn btn-qr_code">QRコード表示</a>
                 </div>
             </div>
-
-            @php
-            $hasReviewed = \App\Models\Review::where('user_id', Auth::id())->where('shop_id', $reservation->shop->id)->exists();
-            @endphp
-
-            @if ($reservation->start_at <= now() && !$hasReviewed)
-                <button class="review-btn" onclick="openReviewModal({{ $reservation->id }}, {{ $reservation->shop->id }}, '{{ $reservation->shop->name }}')">評価する</button>
-                @elseif ($hasReviewed)
-                <p class="evaluated">評価済み</p>
-                @endif
         </div>
 
         <div class="reservation-edit-form" id="edit-mode-{{ $reservation->id }}" style="display: none;">
@@ -145,34 +135,6 @@
         </div>
         @endif
     </section>
-</div>
-
-<div id="review-modal" class="modal">
-    <div class="modal-content">
-        <span id="review-modal-close-btn" class="close">&times;</span>
-        <h3 id="review-modal-title"></h3>
-        <form action="{{ route('reviews.store') }}" method="POST">
-            @csrf
-            <input type="hidden" name="reservation_id" id="modal-reservation-id">
-            <input type="hidden" name="shop_id" id="modal-shop-id">
-
-            <div class="star-rating">
-                <span data-rating="5">★</span>
-                <span data-rating="4">★</span>
-                <span data-rating="3">★</span>
-                <span data-rating="2">★</span>
-                <span data-rating="1">★</span>
-            </div>
-            <input type="hidden" name="rating" id="rating-value" required>
-
-            <label for="comment">コメント</label>
-            <textarea name="comment" id="comment" rows="4" maxlength="500" placeholder="コメントを入力（任意）"></textarea>
-
-            <div class="review-btn-container">
-                <button type="submit" class="submit-review-btn">投稿</button>
-            </div>
-        </form>
-    </div>
 </div>
 
 <script src="{{ asset('js/mypage.js') }}"></script>

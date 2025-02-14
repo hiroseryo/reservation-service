@@ -35,6 +35,7 @@
                 @endguest
 
                 @role('admin')
+                <a href="{{ route('shops.import.form') }}">CSVインポート</a>
                 <a href="{{ route('admin.owners.create') }}">店舗代表者作成</a>
                 <a href="{{ route('admin.announcement') }}">お知らせメール送信</a>
                 <a href="{{ url('/') }}">Home</a>

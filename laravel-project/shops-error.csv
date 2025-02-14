@@ -1,0 +1,6 @@
+name,area,genre,description,image_url
+"寿司太郎","東京","寿司","hello","This is Shop A description","https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg"
+"焼肉太郎","焼肉","This is Shop B description.","https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg"
+"サクセス太郎","福岡県","イタリアン","This is success.","https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg"
+"ラーメン太郎","静岡県","ラーメン","This is Shop D descriptionaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg"
+"居酒屋太郎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","東京都","中華","This is Shop E description.","https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.svg"

@@ -11,13 +11,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
 }
 
 .header-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 8px;
 }
 
 .menu-button {
@@ -54,11 +53,15 @@ h1 {
     border-radius: 10px;
     padding: 20px;
     width: 50%;
-    max-width: 1200px;
-    display: flex;
     gap: 15px;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
 }
 
 .select-wrapper {
@@ -135,6 +138,21 @@ input[type="text"]:focus {
     border-color: #999;
 }
 
+.search-result {
+    display: flex;
+    font-size: 20px;
+    padding: 20px;
+    gap: 5px;
+}
+
+.search-result p {
+    margin: 0;
+}
+
+.search-result :last-child {
+    margin-left: 20px;
+}
+
 .restaurant-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(312px, 1fr));
@@ -161,8 +179,27 @@ input[type="text"]:focus {
     padding: 28px 15px;
 }
 
+.restaurant-header {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.stars {
+    color: rgb(255, 213, 0);
+}
+
+.rating,
+.no-review {
+    margin: 0;
+    align-items: center;
+}
+
+.no-review {
+    font-size: 10px;
+}
+
 .restaurant-name {
-    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
@@ -268,13 +305,58 @@ input[type="text"]:focus {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
-    .modal-content {
-        padding: 100px;
+@media screen and (max-width: 1450px) {
+    .search-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-container {
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
     }
 
     .search-container {
+        width: 99%;
+        margin-right: 9px;
+        margin-left: 3px;
+        padding: 20px;
+        border-radius: 4;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-container {
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .search-container {
+        width: 99%;
         padding: 10px;
-        width: 80%;
+        margin-left: 3px;
+        margin-right: 10px;
+        border-radius: 4;
+        box-shadow: none;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .search-form {
+        flex-wrap: wrap;
     }
 }

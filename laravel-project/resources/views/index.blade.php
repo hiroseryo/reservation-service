@@ -20,10 +20,24 @@
             </button>
             <h1>Rese</h1>
         </div>
+        @php
+        $sortTextMapping = [
+        'random' => 'ランダム',
+        'low' => '評価が低い順',
+        'high' => '評価が高い順',
+        ];
+        @endphp
         <div class="search-container">
-            <div class="select-wrapper">
-                <form action="{{ route('shops.index') }}" method="get">
-                    <select name="area_id">
+            <form action="{{ route('shops.index') }}" method="get" class="search-form">
+                <div class="select-wrapper">
+                    <select name="sort" id="sort-select" onchange="this.form.submit()">
+                        <option value="random" {{ $request->sort === 'random' ? 'selected' : '' }}>ランダム</option>
+                        <option value="low" {{ $request->sort === 'low' ? 'selected' : '' }}>評価が低い順</option>
+                        <option value="high" {{ $request->sort === 'high' ? 'selected' : '' }}>評価が高い順</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select name="area_id" onchange="this.form.submit()">
                         <option value="All">All area</option>
                         @foreach($areas as $area)
                         <option value="{{ $area->id }}" {{ ($request->area_id == $area->id) ? 'selected' : '' }}>
@@ -31,28 +45,33 @@
                         </option>
                         @endforeach
                     </select>
-            </div>
-            <div class="select-wrapper">
-                <select name="genre_id">
-                    <option value="All">All genre</option>
-                    @foreach($genres as $genre)
-                    <option value="{{ $genre->id}}" {{ ($request->genre_id == $genre->id) ? 'selected' : ''}}>
-                        {{ $genre->name }}
-                    </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="search-wrapper">
-                <button class="search-button" aria-label="検索" type="submit">
-                    🔍
-                </button>
-                <input type="text" placeholder="Search ..." name="name" value="{{ $request->name }}">
-                </form>
-            </div>
+                </div>
+                <div class="select-wrapper">
+                    <select name="genre_id" onchange="this.form.submit()">
+                        <option value="All">All genre</option>
+                        @foreach($genres as $genre)
+                        <option value="{{ $genre->id}}" {{ ($request->genre_id == $genre->id) ? 'selected' : ''}}>
+                            {{ $genre->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="search-wrapper">
+                    <button class="search-button" aria-label="検索" type="submit">
+                        🔍
+                    </button>
+                    <input type="text" placeholder="Search ..." name="name" value="{{ $request->name }}">
+                </div>
+            </form>
         </div>
     </header>
 
     <main>
+        <div class="search-result">
+            <p>検索情報</p>
+            <p>:</p>
+            <p id="sort-result">"{{ $sortTextMapping[$request->sort ?? 'random'] }}"</p>
+        </div>
         <div class="restaurant-grid">
             @foreach($shops as $shop)
             <div class="restaurant-card">
@@ -62,7 +81,20 @@
                     </a>
                 </div>
                 <div class="restaurant-info">
-                    <h3 class="restaurant-name">{{ $shop->name }}</h3>
+                    <div class="restaurant-header">
+                        <h3 class="restaurant-name">{{ $shop->name }}</h3>
+                        <div class="stars">★</div>
+                        @if (!is_null($shop->reviews_avg_rating))
+                        <p class="rating">
+                            {{ number_format($shop->reviews_avg_rating, 2) }}
+                        </p>
+                        @else
+                        <p class="no-review">
+                            投稿なし
+                        </p>
+                        @endif
+                    </div>
+
                     <div class="restaurant-tags">
                         <span class="tag">#{{ $shop->area->name }}</span>
                         <span class="tag">#{{ $shop->genre->name}}</span>
@@ -94,6 +126,7 @@
                 @endguest
 
                 @role('admin')
+                <a href="{{ route('shops.import.form') }}">CSVインポート</a>
                 <a href="{{ route('admin.owners.create') }}">店舗代表者作成</a>
                 <a href="{{ route('admin.announcement') }}">お知らせメール送信</a>
                 <a href="{{ url('/') }}">Home</a>

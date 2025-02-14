@@ -9,6 +9,8 @@ use App\Mail\AnnouncementMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CreateShopOwnerRequest;
 use App\Http\Requests\SendEmailRequest;
+use App\Models\Review;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -53,5 +55,25 @@ class AdminController extends Controller
         }
 
         return redirect()->back()->with('success', 'お知らせメールを送信しました');
+    }
+
+    public function destroyByAdmin($reviewId)
+    {
+        $review = Review::findOrFail($reviewId);
+
+        if ($review->img_url) {
+            $parsedUrl = parse_url($review->img_url);
+
+            $pathFromUrl = ltrim($parsedUrl['path'], '/');
+            $relativePath = preg_replace('#^storage/#', '', $pathFromUrl);
+            if (Storage::disk('public')->exists($relativePath)) {
+                if (Storage::disk('public')->delete($relativePath)) {
+                }
+            }
+        }
+
+        $review->delete();
+
+        return back()->with('success', '管理者として口コミを削除しました。');
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ShopOwnerController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ShopImportController;
 
 Route::get('/', [ShopController::class, 'index'])->name('shops.index');
 Route::get('/detail/{shop}', [ShopController::class, 'detail'])->name('shops.detail');
@@ -41,7 +42,9 @@ Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
     Route::post('/unlike', [LikeController::class, 'unlike'])->name('unlike');
     Route::post('/like/{shop}', [LikeController::class, 'unlikeFromMypage'])->name('unlike.from_mypage');
 
-    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::get('/shops/{shop}/reviews/create', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::post('/shops/{shop}/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/reviews/{review}', [ReviewController::class, 'destroyByUser'])->name('reviews.destroy.user');
 
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
     Route::get('/mypage/reservations/{reservationId}/qrcode', [UserController::class, 'show'])->name('reservations.qrcode.show');
@@ -65,4 +68,9 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('announcement', [AdminController::class, 'announcement'])->name('admin.announcement');
     Route::post('announcement/send', [AdminController::class, 'sendAnnouncement'])->name('admin.sendAnnouncement');
+
+    Route::post('reviews/{review}', [AdminController::class, 'destroyByAdmin'])->name('reviews.destroy.admin');
+
+    Route::get('/shops/import', [ShopImportController::class, 'showImportForm'])->name('shops.import.form');
+    Route::post('/shops/import/store', [ShopImportController::class, 'import'])->name('shops.import');
 });
