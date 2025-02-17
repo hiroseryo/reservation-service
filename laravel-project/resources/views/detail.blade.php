@@ -53,56 +53,6 @@
                 <p class="restaurant-description">
                     {{ $shop->description }}
                 </p>
-                @role('user')
-                @if (!$alreadyReviewed && $hasPastReservation)
-                <a href="{{ route('reviews.create', $shop->id) }}" class="btn-primary">
-                    口コミを投稿する
-                </a>
-                @endif
-                @endrole
-                <div class="review-title">全ての口コミ情報</div>
-                @forelse ($shop->reviews as $review)
-                <div class="edit-links">
-                    @role('user')
-                    @if (Auth::id() === $review->user_id)
-                    <a href="{{ route('reviews.create', $shop->id) }}">口コミを編集</a>
-                    @endif
-                    @endrole
-
-                    @role('user')
-                    @if ($review->user_id == Auth::id())
-                    <form action="{{ route('reviews.destroy.user', $review->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        <button type="submit" class="review-delete">口コミを削除</button>
-                    </form>
-                    @endif
-                    @endrole
-
-                    @role('admin')
-                    <form action="{{ route('reviews.destroy.admin', $review->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        <button type="submit" class="review-delete">口コミを削除</button>
-                    </form>
-                    @endrole
-                </div>
-                <div class="stars">
-                    @for ($i = 0; $i < 5; $i++)
-                        @if ($i < $review->rating)
-                        <span class="star">★</span>
-                        @else
-                        <span class="star">☆</span>
-                        @endif
-                        @endfor
-                </div>
-                <div class="review-text">
-                    {{ $review->comment }}
-                </div>
-                <div class="food-image">
-                    <img src="{{ $review->img_url }}">
-                </div>
-                @empty
-                <p class="not-review">レビューはありません</p>
-                @endforelse
             </main>
 
             @role('user')
@@ -165,6 +115,59 @@
                 </div>
                 @endguest
             </aside>
+
+            <div class="review-content">
+                @role('user')
+                @if (!$alreadyReviewed && $hasPastReservation)
+                <a href="{{ route('reviews.create', $shop->id) }}" class="btn-primary">
+                    口コミを投稿する
+                </a>
+                @endif
+                @endrole
+                <div class="review-title">全ての口コミ情報</div>
+                @forelse ($shop->reviews as $review)
+                <div class="edit-links">
+                    @role('user')
+                    @if (Auth::id() === $review->user_id)
+                    <a href="{{ route('reviews.create', $shop->id) }}">口コミを編集</a>
+                    @endif
+                    @endrole
+
+                    @role('user')
+                    @if ($review->user_id == Auth::id())
+                    <form action="{{ route('reviews.destroy.user', $review->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="review-delete">口コミを削除</button>
+                    </form>
+                    @endif
+                    @endrole
+
+                    @role('admin')
+                    <form action="{{ route('reviews.destroy.admin', $review->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        <button type="submit" class="review-delete">口コミを削除</button>
+                    </form>
+                    @endrole
+                </div>
+                <div class="stars">
+                    @for ($i = 0; $i < 5; $i++)
+                        @if ($i < $review->rating)
+                        <span class="star">★</span>
+                        @else
+                        <span class="star">☆</span>
+                        @endif
+                        @endfor
+                </div>
+                <div class="review-text">
+                    {{ $review->comment }}
+                </div>
+                <div class="food-image">
+                    <img src="{{ $review->img_url }}">
+                </div>
+                @empty
+                <p class="not-review">レビューはありません</p>
+                @endforelse
+            </div>
         </div>
 
         <div class="modal" id="modal">

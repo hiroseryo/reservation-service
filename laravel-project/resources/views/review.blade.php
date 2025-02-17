@@ -98,7 +98,6 @@
             </div>
         </div>
     </div>
-    </div>
     <div class="submit-btn">
         <button type="submit">口コミを投稿</button>
     </div>

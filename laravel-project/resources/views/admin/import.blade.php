@@ -18,7 +18,7 @@
         @csrf
         <div class="form-group">
             <label for="csv_file">CSVファイル</label>
-            <input type="file" name="csv_file" id="csv_file" class="form-control" accept=".csv.txt">
+            <input type="file" name="csv_file" id="csv_file" class="form-control">
             @error('csv_file')
             <span class="text-danger">{{ $message }}</span>
             @enderror
