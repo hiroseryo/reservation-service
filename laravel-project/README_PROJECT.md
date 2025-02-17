@@ -144,7 +144,9 @@ STRIPE_SECRET=secret key
 2. インポート機能のファイルは 2 つ用意しました。laravel-project/shops-error.csv はインポートする際に全体のエラーメッセージや成功したレコードのメッセージを拝見できます。laravel-project/shops.csv は全て正常に機能します。
 
     `注意点`
+  
+    - 前提として/public ディレクトリに画像を保存するため必ずlaravel-projectで`php artisan storage:link`をコマンド入力してください。
 
-    ・ 一番上の行は必ずそれぞれのカラムを書いて下さい。shops.csv を参考にしてインポートしてください。
+    - 一番上の行は必ずそれぞれのカラムを書いて下さい。shops.csv を参考にしてインポートしてください。
 
-    ・ 管理者のみの実装ですので`database/seeders/AdminUserSeeder.php`に情報が記載されているのでご確認ください。
+    - 管理者のみの実装ですので`database/seeders/AdminUserSeeder.php`に情報が記載されているのでご確認ください。
